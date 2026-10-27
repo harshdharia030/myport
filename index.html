@@ -1,0 +1,1182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Harsh Dharia — Computer Science Educator, Software Developer and Technology Enthusiast.">
+  <title>Harsh Dharia | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --surface: #11182b;
+      --surface-light: #172138;
+      --text: #f4f7ff;
+      --muted: #a3aec5;
+      --accent: #8b9cff;
+      --cyan: #67e8f9;
+      --border: rgba(255,255,255,.09);
+      --max-width: 1120px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #080d19;
+    }
+
+    .container {
+      width: min(var(--max-width), 88%);
+      margin: auto;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11,16,32,.85);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: color .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 10px 17px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 11px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 105px 0;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: 135px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      top: 10%;
+      right: -150px;
+      border-radius: 50%;
+      background: rgba(108,124,255,.13);
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .8fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: .76rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Manrope", sans-serif;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.9rem, 6.5vw, 5.4rem);
+      letter-spacing: -4px;
+      margin-bottom: 22px;
+    }
+
+    h1 .gradient {
+      background: linear-gradient(110deg, #a5b4fc, #67e8f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 21px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: .9rem;
+      transition: transform .25s, background .25s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: #0b1020;
+      background: linear-gradient(120deg, #a5b4fc, #67e8f9);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+    }
+
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      background: #6ee7b7;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(110,231,183,.5);
+    }
+
+    .profile-card {
+      padding: 30px;
+      background: linear-gradient(145deg, #172138, #0f1628);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      position: relative;
+      box-shadow: 0 25px 80px rgba(0,0,0,.25);
+    }
+
+    .profile-art {
+      height: 250px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(139,156,255,.25), transparent 55%),
+        linear-gradient(145deg, #202c4a, #101729);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .monogram {
+      font-family: "Manrope", sans-serif;
+      font-size: 6.5rem;
+      font-weight: 800;
+      letter-spacing: -9px;
+      color: transparent;
+      -webkit-text-stroke: 2px #a5b4fc;
+      text-shadow: 0 0 50px rgba(139,156,255,.2);
+    }
+
+    .profile-caption {
+      padding-top: 24px;
+    }
+
+    .profile-caption h3 {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .profile-caption p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      font-size: .75rem;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      color: #c5d0e6;
+      border-radius: 6px;
+    }
+
+    .section-heading {
+      margin-bottom: 48px;
+      max-width: 650px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1.5px;
+      margin-bottom: 15px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .accent-text {
+      color: var(--accent);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 17px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 15px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.018);
+      border-radius: 11px;
+    }
+
+    .info-icon {
+      font-size: 1.2rem;
+    }
+
+    .info-item strong {
+      display: block;
+      font-size: .92rem;
+    }
+
+    .info-item span {
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card, .project-card, .timeline-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .skill-card:hover, .project-card:hover, .timeline-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(139,156,255,.5);
+    }
+
+    .skill-card {
+      padding: 24px;
+    }
+
+    .skill-icon {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .skill-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 13px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 20px;
+      max-width: 850px;
+    }
+
+    .timeline-card {
+      padding: 27px;
+      display: grid;
+      grid-template-columns: 175px 1fr;
+      gap: 24px;
+    }
+
+    .timeline-date {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: .85rem;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 5px;
+    }
+
+    .timeline-card h4 {
+      color: #c2cce0;
+      font-weight: 500;
+      font-size: .9rem;
+      margin-bottom: 12px;
+    }
+
+    .timeline-card p, .timeline-card li {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .timeline-card ul {
+      padding-left: 18px;
+      margin-top: 10px;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .education-card {
+      padding: 25px;
+      border-radius: 13px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .education-card .year {
+      color: var(--cyan);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .education-card h3 {
+      font-size: 1.1rem;
+      margin: 12px 0 8px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      padding: 27px;
+    }
+
+    .project-number {
+      color: var(--accent);
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-bottom: 20px;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cert-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .cert-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 19px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: var(--surface);
+    }
+
+    .cert-item .cert-icon {
+      font-size: 1.4rem;
+    }
+
+    .cert-item h3 {
+      font-size: .98rem;
+      margin-bottom: 5px;
+    }
+
+    .cert-item p {
+      font-size: .83rem;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      padding: 55px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background:
+        radial-gradient(ellipse at top right, rgba(139,156,255,.12), transparent 55%),
+        var(--surface);
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+
+    .contact-box > p {
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 28px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .footer {
+      padding: 27px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .back-top {
+      color: var(--accent);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr .8fr;
+        gap: 30px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav-links a {
+        font-size: .82rem;
+      }
+
+      .timeline-card {
+        grid-template-columns: 130px 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      section {
+        padding: 75px 0;
+      }
+
+      .nav-inner {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        padding: 22px 6%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #0f1628;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li a {
+        display: block;
+        padding: 12px 0;
+        font-size: .95rem;
+      }
+
+      .nav-cta {
+        margin-top: 8px;
+        text-align: center;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 125px;
+      }
+
+      .hero-grid, .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .profile-card {
+        max-width: 430px;
+      }
+
+      .profile-art {
+        height: 210px;
+      }
+
+      .skills-grid, .projects-grid, .education-grid, .cert-list {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-card {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 23px;
+      }
+
+      .contact-box {
+        padding: 35px 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a class="logo" href="#home">HD<span>.</span></a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a class="nav-cta" href="#contact">Let's Connect ↗</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">Computer Science · Technology · Education</p>
+
+          <h1>Hi, I'm<br>
+            <span class="gradient">Harsh Dharia.</span>
+          </h1>
+
+          <p class="hero-description">
+            Assistant Professor and technology enthusiast passionate about
+            computer science, programming, cloud technologies, and helping
+            the next generation of learners build practical skills.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#projects">Explore My Work ↗</a>
+            <a class="btn btn-secondary" href="resume.pdf" download>
+              Download Resume ↓
+            </a>
+          </div>
+
+          <div class="availability">
+            <span class="status-dot"></span>
+            <span>Teaching · Learning · Building</span>
+          </div>
+        </div>
+
+        <div class="profile-card reveal">
+          <div class="profile-art">
+            <div class="monogram">HD</div>
+          </div>
+
+          <div class="profile-caption">
+            <h3>Harsh Dharia</h3>
+            <p>Assistant Professor | Computer Applications</p>
+            <div class="profile-tags">
+              <span class="tag">Programming</span>
+              <span class="tag">AI & ML</span>
+              <span class="tag">Cloud & DevSecOps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">01 — About Me</p>
+          <h2>A little about <span class="accent-text">my journey.</span></h2>
+          <p>Bringing together academic knowledge, practical technology, and a passion for teaching.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>
+              I am a computer applications professional with a background
+              in computer science and a keen interest in emerging technologies.
+              My work combines teaching, technical exploration, and continuous learning.
+            </p>
+            <p>
+              As an Assistant Professor at Roorkee Institute of Technology,
+              I aim to make technical concepts easier to understand through
+              structured explanations, practical examples, and hands-on learning.
+            </p>
+            <p>
+              My areas of interest include programming, databases, web technologies,
+              AI and machine learning, Linux, cloud computing, and DevSecOps.
+            </p>
+          </div>
+
+          <div class="info-list reveal">
+            <div class="info-item">
+              <span class="info-icon">🎓</span>
+              <div>
+                <strong>Academic Background</strong>
+                <span>Master of Computer Applications (MCA)</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <span class="info-icon">💼</span>
+              <div>
+                <strong>Current Role</strong>
+                <span>Assistant Professor · RIT, Roorkee</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <span class="info-icon">💻</span>
+              <div>
+                <strong>Technical Interests</strong>
+                <span>Software, Cloud, AI/ML & Cybersecurity</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <span class="info-icon">📍</span>
+              <div>
+                <strong>Based In</strong>
+                <span>Roorkee, Uttarakhand, India</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">02 — Technical Toolkit</p>
+          <h2>Skills that help me <span class="accent-text">build.</span></h2>
+          <p>A growing technical toolkit spanning development, databases, infrastructure, and modern digital technologies.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon">⌨️</div>
+            <h3>Programming</h3>
+            <p>C, C++, Python, HTML, CSS, JavaScript fundamentals.</p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">🗄️</div>
+            <h3>Databases</h3>
+            <p>MySQL, PostgreSQL, MongoDB, Firebase.</p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">☁️</div>
+            <h3>Cloud & DevSecOps</h3>
+            <p>AWS fundamentals, Linux, Ubuntu Server, DevSecOps fundamentals.</p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">🛠️</div>
+            <h3>Development Tools</h3>
+            <p>Git, GitHub, VS Code, MySQL Workbench, VirtualBox.</p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">🌐</div>
+            <h3>Web Technologies</h3>
+            <p>Web fundamentals, WordPress, website setup, and responsive design basics.</p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">📈</div>
+            <h3>Digital Technologies</h3>
+            <p>SEO fundamentals, Google Analytics 4, and digital marketing concepts.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">03 — Experience</p>
+          <h2>Where knowledge meets <span class="accent-text">practice.</span></h2>
+          <p>My professional journey in teaching and technology.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-card reveal">
+            <div class="timeline-date">Aug 2026 – Present</div>
+            <div>
+              <h3>Assistant Professor</h3>
+              <h4>Roorkee Institute of Technology · Roorkee</h4>
+              <p>
+                Contributing to computer applications and technology education
+                through classroom teaching, practical sessions, and student mentoring.
+              </p>
+              <ul>
+                <li>Explain technical concepts using structured teaching materials.</li>
+                <li>Support students with practical learning and academic guidance.</li>
+                <li>Assist with student mentoring and academic coordination.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-card reveal">
+            <div class="timeline-date">Previous Experience</div>
+            <div>
+              <h3>Computer Education & Training</h3>
+              <h4>MAHI Institute Computer Centre (MICC)</h4>
+              <p>
+                Experience in computer education and student instruction.
+                Add your exact designation, employment dates, and key achievements here.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-card reveal">
+            <div class="timeline-date">Internship</div>
+            <div>
+              <h3>Work-Based Learning Internship</h3>
+              <h4>NIELIT, Haridwar</h4>
+              <p>
+                Add your internship dates, technologies used, responsibilities,
+                and any completed assignments or projects.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">04 — Education</p>
+          <h2>The foundation behind <span class="accent-text">my work.</span></h2>
+        </div>
+
+        <div class="education-grid">
+          <article class="education-card reveal">
+            <span class="year">2023 – 2025</span>
+            <h3>Master of Computer Applications (MCA)</h3>
+            <p>Gurukul Kangri Deemed to be University, Haridwar</p>
+          </article>
+
+          <article class="education-card reveal">
+            <span class="year">2020 – 2023</span>
+            <h3>Bachelor of Science (B.Sc.)</h3>
+            <p>K.L.D.A.V. (P.G.) College, Roorkee</p>
+          </article>
+
+          <article class="education-card reveal">
+            <span class="year">School Education</span>
+            <h3>Class XII</h3>
+            <p>Kendriya Vidyalaya No. 1, Roorkee</p>
+          </article>
+
+          <article class="education-card reveal">
+            <span class="year">School Education</span>
+            <h3>Class X</h3>
+            <p>Kendriya Vidyalaya No. 1, Roorkee</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">05 — Selected Work</p>
+          <h2>Ideas turned into <span class="accent-text">projects.</span></h2>
+          <p>Use this section to showcase real projects, working demonstrations, and technical work samples.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-number">01</div>
+            <h3>Personal Portfolio Website</h3>
+            <p>
+              A responsive professional portfolio designed to present
+              technical skills, education, experience, and project work.
+            </p>
+            <div class="project-stack">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-number">02</div>
+            <h3>WordPress Website Development</h3>
+            <p>
+              A local website-building and learning project exploring
+              WordPress setup, themes, page creation, and website customization.
+            </p>
+            <div class="project-stack">
+              <span class="tag">WordPress</span>
+              <span class="tag">Elementor</span>
+              <span class="tag">XAMPP</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-number">03</div>
+            <h3>Digital Marketing Analytics Lab</h3>
+            <p>
+              A learning project focused on website analytics concepts,
+              traffic measurement, event tracking, and digital marketing metrics.
+            </p>
+            <div class="project-stack">
+              <span class="tag">GA4</span>
+              <span class="tag">Meta Pixel</span>
+              <span class="tag">Analytics</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-number">04</div>
+            <h3>Linux & Cloud Practice</h3>
+            <p>
+              A technical learning area for documenting Linux administration,
+              server setup, cloud fundamentals, and DevSecOps exercises.
+            </p>
+            <div class="project-stack">
+              <span class="tag">Linux</span>
+              <span class="tag">Ubuntu</span>
+              <span class="tag">AWS</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">06 — Certifications</p>
+          <h2>Always <span class="accent-text">learning.</span></h2>
+          <p>Professional learning and certifications that complement my academic background.</p>
+        </div>
+
+        <div class="cert-list">
+          <article class="cert-item reveal">
+            <span class="cert-icon">🏅</span>
+            <div>
+              <h3>AI for Beginners</h3>
+              <p>HP LIFE · February 2025</p>
+            </div>
+          </article>
+
+          <article class="cert-item reveal">
+            <span class="cert-icon">🔐</span>
+            <div>
+              <h3>DevSecOps Basic Course</h3>
+              <p>Kyndryl & NIELIT Delhi · July–September 2025</p>
+            </div>
+          </article>
+
+          <article class="cert-item reveal">
+            <span class="cert-icon">☕</span>
+            <div>
+              <h3>Oracle Foundation</h3>
+              <p>Add the exact certification title and issue date.</p>
+            </div>
+          </article>
+
+          <article class="cert-item reveal">
+            <span class="cert-icon">📚</span>
+            <div>
+              <h3>Continuous Learning</h3>
+              <p>Exploring programming, cloud technologies, and emerging tools.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <p class="eyebrow">07 — Get In Touch</p>
+          <h2>Let's create something <span class="accent-text">meaningful.</span></h2>
+          <p>
+            Interested in collaborating, discussing technology, sharing ideas,
+            or connecting professionally? I'd be happy to hear from you.
+          </p>
+
+          <div class="contact-links">
+            <a class="btn btn-primary"
+              href="mailto:YOUR_EMAIL@example.com">
+              ✉ Email Me
+            </a>
+
+            <a class="btn btn-secondary"
+              href="https://www.linkedin.com/"
+              target="_blank" rel="noopener noreferrer">
+              LinkedIn ↗
+            </a>
+
+            <a class="btn btn-secondary"
+              href="https://github.com/"
+              target="_blank" rel="noopener noreferrer">
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Harsh Dharia. Crafted with purpose.</p>
+      <a href="#home" class="back-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
+</html>
